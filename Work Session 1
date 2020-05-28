@@ -1,0 +1,34 @@
+""" The purpose of this function is to find the sum of all numbers, 
+less than one million, which are palindromic in base 10 and base 2. """
+
+def doublebasepanlindromes():
+
+# Converts a decimal number to a binary number
+    def decimalToBinary(n): 
+        return str(bin(n).replace("0b",""))
+  
+# test if the input is a panlindrome. I reused the isPanlindrome function I created in lab7
+    def isPanlindrome(s):
+        s = str(s)
+        if len(s)==1:
+            return True
+        elif s=="":
+            return True
+        elif s[0]==s[len(s)-1]:
+            return isPanlindrome(s[1:len(s)-1])
+        else:
+            return False
+
+# test if a number is penlindrome in both binary and decimal
+    def isbinarydecimalpanlindrome(n):
+        if (isPanlindrome(n)==True) and (isPanlindrome(decimalToBinary(n))==True):
+            return True
+        else:
+            return False
+
+# Taking the sum of all numbers that are penlindrome in both base 10 and base 2
+    ans= sum(i for i in range(1000000) if isbinarydecimalpanlindrome(i)==True)
+    return ans
+
+# get the answer
+print(doublebasepanlindromes())
