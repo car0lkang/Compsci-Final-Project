@@ -1,0 +1,23 @@
+""" In this session, I worked on making my code more concise for the double base palindrome problem.
+I was inspired by another user's solution (https://github.com/nayuki/Project-Euler-solutions/blob/master/python/p036.py?ts=4),
+but I didn't plagiarise his code"""
+
+def doublebasepanlindromes():
+
+# this function tests if a number is palindrome in both binary and decimal
+    def isbinarydecimalpanlindrome(n):
+        s = str(n)
+      # bin() is a built in function that converts decimal to binary so I don't need an independent function either 
+        b = bin(n)[2:]
+        # I actually don't need an independent function to test if a string is a palindrome, becasue [::-1] achives the same effect
+        if s != s [::-1]:
+            return False
+        # if the decimal is palindrome, we go further to test if the binary is palindrome
+        else:
+            if b == b[::-1]:
+                return True
+            else:
+                return False
+    ans=sum(i for i in range(1000000) if isbinarydecimalpanlindrome(i)==True)
+
+print(doublebasepanlindromes())
