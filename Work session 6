@@ -13,11 +13,12 @@ def catalan(n):
     # We calculate terms in the list using the recursive formula for Catalan number, which I researched online
     for i in range(2, n+1): 
         catalan[i] = 0
-        for j in range(i): 
+        for k in range(i): 
         # plotting the formula, we use a for loop instead of the summation sign in the formula
-            catalan[i] = catalan[j] * catalan[i-j-1] + catalan[i] 
+            catalan[i] = catalan[k] * catalan[i-k-1] + catalan[i] 
         
     # Return the nth entry of list
     return catalan[n] 
   
 print (catalan(5)) 
+
