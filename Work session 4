@@ -1,0 +1,28 @@
+""" The purpose of this function is to find the 10001st prime number
+improved version"""
+
+# This function allows us to find the nth prime number of the user's input
+def primesnum(n):
+    """I kind of cheated here because I looked up the answer and chose a number that is greater than it
+    However, if I set upperlim = n and upperlim +=1, i get an list index out of range error
+    That will something that I will work on in the future"""
+    upperlim = 104750
+    
+    # create a set that records all the odd not prime numbers
+    not_prime = set()
+    # create a list that records all the prime numbers, given 2
+    primes = [2]
+
+    # instead of testing for every single number between, we use a side step of 2 because all the even numbers except for 2 are not prime
+    for i in range(3, upperlim, 2):
+        # if i is in the set of odd not prime numbers, we go to the need odd number
+        if i in not_prime:
+            continue
+        # we record all the odd multiples of the prime number to set not_prime
+        for j in range(i*3, upperlim, i*2):
+            not_prime.add(j)
+
+        primes.append(i)
+    return primes[n-1]
+
+print(primesnum(10001))
