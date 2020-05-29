@@ -1,0 +1,23 @@
+def catalan(n): 
+    # The first two Catalan numbers are just 1
+    if n == 1 or n == 0: 
+        return 1
+  
+    # Create a list of nth Catalan number with the initial value of 0, we will add in values as we go
+    catalan = [0 for i in range(n+1)] 
+  
+    # Initialize the first two terms in the list to be 1
+    catalan[0] = 1
+    catalan[1] = 1
+  
+    # We calculate terms in the list using the recursive formula for Catalan number, which I researched online
+    for i in range(2, n+1): 
+        catalan[i] = 0
+        for j in range(i): 
+        # plotting the formula, we use a for loop instead of the summation sign in the formula
+            catalan[i] = catalan[j] * catalan[i-j-1] + catalan[i] 
+        
+    # Return the nth entry of list
+    return catalan[n] 
+  
+print (catalan(5)) 
