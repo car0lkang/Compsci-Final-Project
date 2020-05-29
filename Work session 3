@@ -1,0 +1,22 @@
+""" The purpose of this function is to find the 10001st prime number"""
+
+def primenum():
+# I created a list that intends to record all the prime numbers, given that the first prime number is 2
+    prime=[2]
+# I assume the upperlimit to be 100 to begin with. n increase by 1 each time a new prime number is found
+    n=100
+# Because we don't know what is the 10001st prime number, we need a while loop that stops after there are 10001 items in list
+    while len(prime)<10002:
+        for num in range(3,n):
+            for i in range (2,num):
+                # divide the number by every number that is smaller than itself
+                if (num % i) != 0:
+                    # add the number to list if it is a prime number
+                    prime.append(num)
+                    n = n + 1
+                else:
+                    break
+# return the value of the 10001st element in list "prime"
+    return (list[10001])
+
+print(primenum())
